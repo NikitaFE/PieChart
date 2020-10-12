@@ -1,0 +1,43 @@
+.form {
+  margin-bottom: 10px;
+}
+
+.input {
+  margin: 0 10px 10px;
+  padding: 5px 10px;
+
+  border-radius: 10px;
+  border: 2px solid #9b59b6;
+  outline: none;
+
+  transition: 0.3s;
+}
+
+.input:hover, .input:focus {
+  border-color: #2980b9;
+}
+
+.delete {
+  margin: 0;
+  padding: 0;
+
+  font-weight: 600;
+  font-size: 20px;
+  color: #e74c3c;
+  vertical-align: middle;
+
+  background-color: transparent;
+  border: none;
+  outline: none;
+  opacity: 0.7;
+
+  transition: 0.3s;
+}
+
+.delete:hover, .delete:focus {
+  opacity: 1;
+}
+
+.delete:hover {
+  cursor: pointer;
+}
