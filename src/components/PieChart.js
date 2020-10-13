@@ -8,7 +8,7 @@ import useStyles from './PieChart.jss';
 const PieChart = () => {
   const classes = useStyles();
   const { data } = useContext(Context);
-  const [slices, setSlices] = useState(generateSlices(data));
+  const slices = useState(generateSlices(data));
   const [label, setLabel] = useState('');
   const pathData = renderPathData(slices);
 
