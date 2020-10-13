@@ -3,9 +3,10 @@ import { useContext } from 'react';
 import { Context } from '../App';
 import { generateSlices, renderPathData } from '../helpers';
 
-import './PieChart.css';
+import useStyles from './PieChart.jss';
 
 const PieChart = () => {
+  const classes = useStyles();
   const { data } = useContext(Context);
   const [slices, setSlices] = useState(generateSlices(data));
   const [label, setLabel] = useState('');
@@ -24,8 +25,8 @@ const PieChart = () => {
   return (
     <Context.Consumer>
       {({ data }) => (
-        <div className="pie-chart">
-          <h1 className="chart-label">{data[0].value === 0 ? 'Нет данных' : label}</h1>
+        <div className={classes.pieChart}>
+          <h1 className={classes.chartLabel}>{data[0].value === 0 ? 'Нет данных' : label}</h1>
           <svg height="600" width="600"  viewBox="-1 -1 2 2" style={{transform: 'rotate(-90deg)'}}>
             {pathData.map(({ data, id, color, name }) => (
               <path

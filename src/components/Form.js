@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 
-import './Form.css';
+import useStyles from './Form.jss';
 
 const Form = ({ form, getFields, deleteForm }) => {
+  const classes = useStyles();
   const [fields, setFields] = useState(form);
 
   const handleBlur = () => {
@@ -10,7 +11,7 @@ const Form = ({ form, getFields, deleteForm }) => {
   }
 
   return (
-    <form className="form">
+    <form className={classes.form}>
       <input
         value={fields.name}
         name="name"
@@ -18,7 +19,7 @@ const Form = ({ form, getFields, deleteForm }) => {
         onChange={({ target }) => setFields({...fields, name: target.value})}
         placeholder="Введите название"
         onBlur={handleBlur}
-        className="input"
+        className={classes.input}
       />
       <input
         value={fields.value}
@@ -30,11 +31,11 @@ const Form = ({ form, getFields, deleteForm }) => {
         }}
         placeholder="Введите количество"
         onBlur={handleBlur}
-        className="input"
+        className={classes.input}
       />
       <button
         type="button"
-        className="delete"
+        className={classes.delete}
         onClick={() => deleteForm(form.id)}
       >&times;</button>
     </form>

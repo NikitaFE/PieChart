@@ -1,13 +1,17 @@
 import React, { useState, createContext } from 'react';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 
-import './App.css';
 import FormPage from './components/FormPage';
 import PieChart from './components/PieChart';
+
+import useGlobalStyles from './index.jss';
+import useStyles from './App.jss';
 
 export const Context = createContext();
 
 const App = () => {
+  useGlobalStyles();
+  const classes = useStyles();
   const [error, setError] = useState('');
   const [data, setData] = useState([{
     id: Date.now().toString(),
@@ -63,10 +67,10 @@ const App = () => {
         handleClick,
         deleteForm
       }}>
-        <div className="container">
-          <header className="header">
-            <Link className="link" to="/">Form</Link>
-            <Link className="link" to="/pie-chart">Pie Chart</Link>
+        <div className={classes.container}>
+          <header className={classes.header}>
+            <Link className={classes.link} to="/">Form</Link>
+            <Link className={classes.link} to="/pie-chart">Pie Chart</Link>
           </header>
           <Switch>
             <Route exact path="/" component={FormPage} />
